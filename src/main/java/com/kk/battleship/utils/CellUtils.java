@@ -14,7 +14,10 @@ public class CellUtils {
 	}
 
 	public static Dimension getDimension(int rows, String columns) throws InitializationException{
-		if(rows<1 || rows>10 ||columns.length()>1||!(columns.charAt(0)>='A'&& columns.charAt(0)<='Z')){
+		if(columns != null) {
+			columns = columns.trim();
+		}
+		if(rows<1 || rows>10 ||columns == null||columns.length()<1||columns.length()>1||!(columns.charAt(0)>='A'&& columns.charAt(0)<='Z')){
 			throw new InitializationException();
 		}
 		Dimension d = new Dimension(rows, columns.charAt(0)-'A'+1);
