@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.kk.battleship.beans.BattleArea;
-import com.kk.battleship.beans.Dimension;
-import com.kk.battleship.beans.IPlayer;
-import com.kk.battleship.beans.NormalPlayer;
-import com.kk.battleship.beans.Ship;
 import com.kk.battleship.enums.HitResult;
 import com.kk.battleship.exceptions.InitializationException;
+import com.kk.battleship.models.BattleArea;
+import com.kk.battleship.models.Dimension;
+import com.kk.battleship.models.IPlayer;
+import com.kk.battleship.models.NormalPlayer;
+import com.kk.battleship.models.Ship;
 
 
 public class Game {

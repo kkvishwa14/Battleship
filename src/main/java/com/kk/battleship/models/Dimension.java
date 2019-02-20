@@ -1,4 +1,4 @@
-package com.kk.battleship.beans;
+package com.kk.battleship.models;
 
 public class Dimension {
 	private int length;

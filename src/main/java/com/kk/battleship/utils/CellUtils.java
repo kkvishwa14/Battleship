@@ -1,7 +1,7 @@
 package com.kk.battleship.utils;
 
-import com.kk.battleship.beans.Dimension;
 import com.kk.battleship.exceptions.InitializationException;
+import com.kk.battleship.models.Dimension;
 
 public class CellUtils {
 

@@ -1,9 +1,8 @@
-package com.kk.battleship.beans;
-
-import com.kk.battleship.beans.Dimension;
+package com.kk.battleship.models;
 
 import com.kk.battleship.enums.HitResult;
 import com.kk.battleship.enums.ShipType;
+import com.kk.battleship.models.Dimension;
 
 
 public class Ship {

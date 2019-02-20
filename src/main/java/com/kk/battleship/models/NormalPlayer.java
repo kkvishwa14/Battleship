@@ -1,4 +1,4 @@
-package com.kk.battleship.beans;
+package com.kk.battleship.models;
 import java.util.List;
 import java.util.Map;
 

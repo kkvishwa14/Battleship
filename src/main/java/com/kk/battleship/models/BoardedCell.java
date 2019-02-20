@@ -1,4 +1,4 @@
-package com.kk.battleship.beans;
+package com.kk.battleship.models;
 
 import com.kk.battleship.enums.CellStatus;
 import com.kk.battleship.enums.HitResult;

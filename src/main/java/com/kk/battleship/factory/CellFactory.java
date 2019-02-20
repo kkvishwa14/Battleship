@@ -1,8 +1,8 @@
 package com.kk.battleship.factory;
-import com.kk.battleship.beans.BoardedCell;
-import com.kk.battleship.beans.Cell;
-import com.kk.battleship.beans.ICell;
 import com.kk.battleship.enums.CellStatus;
+import com.kk.battleship.models.BoardedCell;
+import com.kk.battleship.models.Cell;
+import com.kk.battleship.models.ICell;
 
 
 public class CellFactory {
