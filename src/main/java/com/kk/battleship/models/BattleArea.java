@@ -39,14 +39,17 @@ public class BattleArea {
 		return minimumAttacksNeeded;
 	}
 
-	public BattleArea(int rows, String columns) throws InitializationException {
-		Dimension d = CellUtils.getDimension(rows, columns);
+	public BattleArea(String rows, String columns) throws InitializationException {
+		this(CellUtils.getDimension(rows, columns));
+	}
+	
+	public BattleArea(Dimension d) throws InitializationException {
 		this.dimension = d;
 		cells = new ICell[d.getLength()][d.getBreadth()];
 		initializeCells();
 		totalActiveAreas = 0;
 	}
-
+	
 	public void evaluateResult(HitResult hitResult) {
 		if (HitResult.MISS != hitResult) {
 			if (HitResult.DESTROYED == hitResult) {

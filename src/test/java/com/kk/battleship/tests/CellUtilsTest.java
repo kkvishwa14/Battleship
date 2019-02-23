@@ -28,7 +28,7 @@ public class CellUtilsTest {
 	public void testInvalidRow_MoreThan10(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(12, "E");
+			CellUtils.getDimension("12", "E");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -38,7 +38,7 @@ public class CellUtilsTest {
 	public void testInvalidRow_Boundary_Check_1(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(0, "E");
+			CellUtils.getDimension("0", "E");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -49,7 +49,7 @@ public class CellUtilsTest {
 	public void testInvalidRow_Negative(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(-1, "E");
+			CellUtils.getDimension("-1", "E");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -59,7 +59,7 @@ public class CellUtilsTest {
 	public void testInvalidRow_Boundary_Check_2(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(11, "E");
+			CellUtils.getDimension("11", "E");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -70,7 +70,7 @@ public class CellUtilsTest {
 	public void testInvalidColumns_Multiple(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(0, "AE");
+			CellUtils.getDimension("0", "AE");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -81,7 +81,7 @@ public class CellUtilsTest {
 	public void testInvalidColumns_Empty(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(0, "");
+			CellUtils.getDimension("0", "");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -92,7 +92,7 @@ public class CellUtilsTest {
 	public void testInvalidColumns_Null(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(0, null);
+			CellUtils.getDimension("0", null);
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -104,7 +104,7 @@ public class CellUtilsTest {
 	public void testInvalidColumns_Non_Alphabetic(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(0, "1");
+			CellUtils.getDimension("0", "1");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -115,7 +115,7 @@ public class CellUtilsTest {
 	public void testValid_Normal(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(5, "E");
+			CellUtils.getDimension("5", "E");
 		}catch(InitializationException e){
 			thrown = true;
 		}
@@ -126,7 +126,7 @@ public class CellUtilsTest {
 	public void testValid_With_Space(){
 		boolean thrown = false;
 		try {
-			CellUtils.getDimension(5, "E   ");
+			CellUtils.getDimension("5", "E   ");
 		}catch(InitializationException e){
 			thrown = true;
 		}

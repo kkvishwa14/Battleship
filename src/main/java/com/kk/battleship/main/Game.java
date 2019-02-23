@@ -45,8 +45,8 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 		try {
 		Game g = new Game();
 		
-		BattleArea ba1 = new BattleArea(5,"E");
-		BattleArea ba2 = new BattleArea(5,"E");
+		BattleArea ba1 = new BattleArea("5","E");
+		BattleArea ba2 = new BattleArea("5","E");
 		
 //		Ship s1 = new Ship();
 		
