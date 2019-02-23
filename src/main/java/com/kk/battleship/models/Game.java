@@ -1,4 +1,4 @@
-package com.kk.battleship.main;
+package com.kk.battleship.models;
 
 
 
@@ -18,8 +18,24 @@ import com.kk.battleship.models.Ship;
 
 public class Game {
 	
-	IPlayer player1;
-	IPlayer player2;
+	private IPlayer player1;
+	public IPlayer getPlayer1() {
+		return player1;
+	}
+
+	public void setPlayer1(IPlayer player1) {
+		this.player1 = player1;
+	}
+
+	public IPlayer getPlayer2() {
+		return player2;
+	}
+
+	public void setPlayer2(IPlayer player2) {
+		this.player2 = player2;
+	}
+
+	private IPlayer player2;
 	/*
 	 * 
 	 * 
@@ -40,7 +56,7 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 
 
 	 */
-	
+	/*
 	public static void main(String[] args){
 		try {
 		Game g = new Game();
@@ -58,7 +74,7 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 		
 		Map<Ship, String> placementMap1 = new HashMap<Ship, String>();
 		placementMap1.put(s1_1, "A1");
-		placementMap1.put(s2_1, "A1");
+		placementMap1.put(s2_1, "D4");
 		
 		Map<Ship, String> placementMap2 = new HashMap<Ship, String>();
 		placementMap2.put(s1_2, "B2");
@@ -101,7 +117,7 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 		ba1.printCells();
 		System.out.println("==========================");
 		ba2.printCells();
-		g.startGame(g.player1, g.player2);
+		g.startGame();
 		System.out.println("GAME FINISHED");
 		if(g.player1.lost()){
 			System.out.println("P2 won");
@@ -116,15 +132,15 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 			System.out.println("Exception "+ex);
 		}
 	}
-	
-	public void startGame(IPlayer p1, IPlayer p2) {
-		IPlayer startingPlayer = p1;
-		IPlayer opponentPlayer = p2;
+	*/
+	public void startGame() {
+		IPlayer startingPlayer = player1;
+		IPlayer opponentPlayer = player2;
 		while(startingPlayer.hasMissilesLeft() || opponentPlayer.hasMissilesLeft()) {
 			System.out.println(startingPlayer.getName()+"'s turn");
 			HitResult result = startingPlayer.hit(opponentPlayer);
 			if(result != HitResult.MISS){
-				System.out.println("hit");
+				System.out.println(startingPlayer.getName()+ " Hit ");
 				if(opponentPlayer.lost()){
 					System.out.println("Player "+startingPlayer.getName()+" won");
 					break;

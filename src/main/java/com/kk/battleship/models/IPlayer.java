@@ -21,4 +21,6 @@ public interface IPlayer {
  public boolean placeShips();
 
  public boolean hasMissilesLeft();
+ 
+ public BattleArea getBattleArea();
 }
