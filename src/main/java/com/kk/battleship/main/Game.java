@@ -58,14 +58,18 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 		
 		Map<Ship, String> placementMap1 = new HashMap<Ship, String>();
 		placementMap1.put(s1_1, "A1");
-		placementMap1.put(s2_1, "D4");
+		placementMap1.put(s2_1, "A1");
 		
 		Map<Ship, String> placementMap2 = new HashMap<Ship, String>();
 		placementMap2.put(s1_2, "B2");
 		placementMap2.put(s2_2, "C3");
 		
 		g.player1 = new NormalPlayer("P1",ba1, placementMap1);
-		g.player1.placeShips();
+		
+		if(!g.player1.placeShips()) {
+			System.out.println("Colud not place ship for player 1 ,Exiting");
+			System.exit(0);
+		}
 		List<String> targets1 = new ArrayList<String>();
 		targets1.add("A1");
 		targets1.add("B2");
@@ -73,7 +77,10 @@ Missile Targets for player B: A1 B2 B3 A1 D1 E1 D4 D4 D5 D5
 		targets1.add("B3");
 		g.player1.initializeMissileTargets(targets1);
 		g.player2 = new NormalPlayer("P2",ba2, placementMap2);
-		g.player2.placeShips();
+		if(!g.player2.placeShips()) {
+			System.out.println("Colud not place ship for player 2 ,Exiting");
+			System.exit(0);
+		}
 		List<String> targets2 = new ArrayList<String>();
 		targets2.add("A1");
 		targets2.add("B2");

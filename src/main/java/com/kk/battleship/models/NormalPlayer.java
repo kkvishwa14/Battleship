@@ -1,20 +1,21 @@
 package com.kk.battleship.models;
+
 import java.util.List;
 import java.util.Map;
 
 import com.kk.battleship.enums.HitResult;
 import com.kk.battleship.enums.PlayerStatus;
+import com.kk.battleship.exceptions.CellAlreadyBoardedException;
 import com.kk.battleship.utils.CellUtils;
 
-
-public class NormalPlayer implements IPlayer{
+public class NormalPlayer implements IPlayer {
 	private String name;
 	private BattleArea battleArea;
 	private PlayerStatus playerStatus;
-	
+
 	private Map<Ship, String> shipPlacements;
 	private List<String> targets;
-	
+
 	public BattleArea getBattleArea() {
 		return battleArea;
 	}
@@ -51,35 +52,44 @@ public class NormalPlayer implements IPlayer{
 		this.name = name;
 	}
 
-	public NormalPlayer(String name, BattleArea battleArea, Map<Ship, String> placementMap) {
+	public NormalPlayer(String name, BattleArea battleArea,
+			Map<Ship, String> placementMap) {
 		this.name = name;
 		this.battleArea = battleArea;
 		this.shipPlacements = placementMap;
 		this.playerStatus = PlayerStatus.UNDECIDED_YET;
 	}
-	
-	public void placeShips(){
-		shipPlacements.forEach((ship,placement)->this.battleArea.placeShip(ship, placement));
+
+	public boolean placeShips() {
+		try {
+			for (Map.Entry<Ship, String> shipPlacement : shipPlacements
+					.entrySet()) {
+				this.battleArea.placeShip(shipPlacement.getKey(),
+						shipPlacement.getValue());
+			}
+		} catch (CellAlreadyBoardedException e) {
+			return false;
+		}
+		return true;
 	}
-	
+
 	public void initializeMissileTargets(List<String> targets) {
 		this.targets = targets;
 	}
 
 	@Override
 	public HitResult hit(IPlayer player) {
-		if(!this.targets.isEmpty()) {
+		if (!this.targets.isEmpty()) {
 			String target = targets.remove(0);
-			System.out.println("Hitting at "+target);
+			System.out.println("Hitting at " + target);
 			return player.getHitResult(target);
 		} else {
 			System.out.println("I have no missiles left");
 			return HitResult.MISS;
 		}
-		
+
 	}
 
-	
 	@Override
 	public boolean won() {
 		return this.playerStatus == PlayerStatus.WON;
@@ -94,11 +104,11 @@ public class NormalPlayer implements IPlayer{
 	public HitResult getHitResult(String hitCellLocation) {
 		int row = CellUtils.getRowNo(hitCellLocation);
 		int col = CellUtils.getColumnNo(hitCellLocation);
-		
+
 		ICell cell = this.battleArea.getCells()[row][col];
 		HitResult hitResult = cell.getHitResult();
 		this.battleArea.evaluateResult(hitResult);
-		if(this.battleArea.getMinimumAttacksNeeded()==0){
+		if (this.battleArea.getMinimumAttacksNeeded() == 0) {
 			this.playerStatus = PlayerStatus.LOST;
 		}
 		return hitResult;
@@ -107,12 +117,12 @@ public class NormalPlayer implements IPlayer{
 
 	@Override
 	public boolean hasMissilesLeft() {
-		return targets.size()>0;
+		return targets.size() > 0;
 	}
 
 	@Override
 	public String getName() {
-		
+
 		return name;
 	}
 }

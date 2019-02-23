@@ -42,6 +42,15 @@ public class CellUtils {
 		return 	cellCoordinate.charAt(0) - 'A';
 	}
 
+	/**
+	 * Gets the Dimension Object for BattleArea rows and columns 
+	 * 
+	 * @param rows input having value from 0-9 
+	 * @param columns input having value A-Z
+	 * @return
+	 * @throws InitializationException
+	 */
+	
 	public static Dimension getDimension(String rows, String columns) throws InitializationException{
 		
 		if(!isValidRowSize(rows) || !isValidColumnSize(columns)){

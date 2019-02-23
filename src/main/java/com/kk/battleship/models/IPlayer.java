@@ -18,7 +18,7 @@ public interface IPlayer {
  
  public void initializeMissileTargets(List<String> targets);
  
- public void placeShips();
+ public boolean placeShips();
 
  public boolean hasMissilesLeft();
 }

@@ -3,6 +3,7 @@ package com.kk.battleship.launcher;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Scanner;
 
 public class GameLauncher {
@@ -15,18 +16,22 @@ public class GameLauncher {
 		this.gameInputsFileName = gameInputsFileName;
 	}
 	public void launchGame() {
-		try (Scanner sc = new Scanner(new File(this.getClass().getResource(gameInputsFileName).toURI()));){
-			String line = "";
+		
+		try {
+			URL url = this.getClass().getResource(gameInputsFileName);
+			Scanner sc = new Scanner(new File(url.toURI()));
+			//String line = "";
 			while(sc.hasNextLine()){
-				
+				System.out.println(sc.nextLine());
 			}
+			sc.close();
 		} catch (FileNotFoundException | URISyntaxException e) {
 			System.out.println("Exception occurred :"+e);
 		}
 	}
 	public static void main(String[] args) {
 		GameLauncher gl = new GameLauncher();
-		if(args[0] != null){
+		if(args.length>0 && args[0] != null){
 			gl.setGameInputsFileName(args[0]);
 		}
 		gl.launchGame();
