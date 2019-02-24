@@ -88,8 +88,7 @@ public class GameLauncher {
 		Scanner sc= null;
 		try {
 
-			sc = new Scanner(new File(
-					"D:\\Algust\\Battleship\\src\\main\\resources\\input.txt"));
+			sc = new Scanner(new File(this.getClass().getClassLoader().getResource(gameInputsFileName).toURI()));
 			System.out.println("Creating Battleareas");
 			List<BattleArea> battleAreas = createBattleArea(sc);
 			if (battleAreas.isEmpty()) {
