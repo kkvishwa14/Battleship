@@ -62,8 +62,8 @@ public class BattleArea {
 	}
 
 	public void initializeCells() {
-		for (int i = 0; i < dimension.getBreadth(); i++) {
-			for (int j = 0; j < dimension.getLength(); j++) {
+		for (int i = 0; i < dimension.getLength(); i++) {
+			for (int j = 0; j < dimension.getBreadth(); j++) {
 				cells[i][j] = CellFactory.getCellInstance(CellStatus.INACTIVE);
 			}
 		}

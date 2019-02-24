@@ -10,10 +10,6 @@ import com.kk.battleship.utils.CellUtils;
 
 
 public class CellUtilsTest {
-
-	 @Rule
-	 public ExpectedException thrown = ExpectedException.none();
-	 
 	@Test
 	public void testColumn(){//Zero-based column no
 		Assert.assertEquals(5, CellUtils.getColumnNo("C6"));
